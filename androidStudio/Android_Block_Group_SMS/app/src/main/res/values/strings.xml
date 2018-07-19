@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Auto Read SMS</string>
+    <string name="sms">SMS</string>
+    <string name="sms_des">SMS Read permission is needed to Read OTP SMS from your phone, would you like to reconsider?</string>
+</resources>
