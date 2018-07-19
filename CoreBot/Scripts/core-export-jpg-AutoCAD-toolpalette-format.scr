@@ -1,0 +1,46 @@
+;;; save drawing information
+(setq drawingName(substr (getvar 'dwgname) 1 (- (strlen (getvar 'dwgname))4)))
+(setq imageExtension ".jpg")
+(setq imageName (strcat "..\\Output-Files\\" drawingName imageExtension))
+;;; room for LISP formatting
+;;; background and crosshair color will stay in whatever state AutoCAD has them saved as
+;;; editing preferences through the AutoCADCoreConsle will not affect background and crosshair color
+;;; delete all attributes
+(setq ss (ssget "x" '((0 . "attdef"))))
+(if ss (command "_.Erase" ss ""))
+;;; delete all wipeouts
+(setq ss2 (ssget "x" '((0 . "wipeout"))))
+(if ss2 (command "_.Erase" ss2 ""))
+;;; change width of all polylines
+(setq ss3 (ssget "x" '((0 . "LWPOLYLINE"))))
+;;; set widths when polyline exist
+(if ss3 (command "PEDIT" "Multiple" "Previous" "" "Width" "1.0" ""))
+;;; variables for command line inputs
+(setq configurationOption "Color")
+(setq colorType "Truecolor")
+(setq trueColorString "0,63,255")
+(setq layerNameToConfigure "0")
+;;; enter -Layer  command to configure the color
+-Layer
+!configurationOption
+!colorType
+!trueColorString
+!layerNameToConfigure
+
+;;; variables for command line inputs
+(setq objectsToPrintStringOption "ALL")
+;;; zoom extents and export	
+ZOOM EXTENTS
+REGEN
+;;; enter JPGOUT  command and use variables to set options
+JPGOUT
+;;; Enter file name:
+!imageName
+;;; Select objecst to print or <ALL\Extents\more options...>
+!objectsToPrintStringOption
+;;; there must be a blank line after sending a string into the object selection arguement
+
+;;; AutoCAD command line quit with discard changes
+;;; Must stay on same line to exit correctly, with this specific script, for some reason
+;;; There must be a space after YES
+_QUIT YES 

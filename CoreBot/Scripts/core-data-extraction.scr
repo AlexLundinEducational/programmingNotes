@@ -1,0 +1,28 @@
+;;; save drawing information
+(setq drawingName(substr (getvar 'dwgname) 1 (- (strlen (getvar 'dwgname))4)))
+(setq imageExtension ".pdf")
+(setq pdfFileName (strcat "..\\Output-Files\\" drawingName imageExtension))
+;;; save options into variables
+;;; THESE OPTIONS have specific formatting that might be different than what
+;;; you are used to seeing inside full AutoCAD
+(setq detailedPlotConfiguration "No")
+(setq layoutName "Model")
+(setq pageSetup "")
+(setq plotOutputDevice "DWG To PDF.pc3")
+(setq savePageSetupChanges "No")
+(setq proceedWithPlot "Yes")
+(setq discardChanges "Yes")
+;;; zoom extents and export	
+ZOOM EXTENTS
+REGEN
+;;; enter plot command and use variables to set options
+(command 
+"DATAEXTRACTION"
+;;; Detailed plot configuration: Yes/No
+?
+)
+;;;Exit drawing
+;;;_QUIT
+;;;Discard changes? Yes/No
+;;;!discardChanges
+

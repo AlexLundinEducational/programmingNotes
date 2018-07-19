@@ -1,0 +1,5 @@
+--Alex Lundin
+--06/26/2018
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- The readme is a placeholder to make sure the Output-Files folder always exists
+-- See the Windows-Batch-Process folder to understand how Output-Files are created

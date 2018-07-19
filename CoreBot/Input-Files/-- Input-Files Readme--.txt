@@ -1,0 +1,5 @@
+--Alex Lundin
+--06/26/2018
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- The readme is a placeholder to make sure the Input-Files folder always exists
+-- See the Windows-Batch-Process folder to understand how Input-Files are processesed

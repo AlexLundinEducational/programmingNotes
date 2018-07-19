@@ -1,0 +1,18 @@
+;;; save settings for restore at the end		
+(setq acadPerferences (vlax-get-property acadobject 'preferences))
+(setq acadDisplayPeference (vlax-get-property acadPerferences 'display))
+
+(setq previousAcadPreferences acadPerferences)
+(setq previousBackgroundColor (vlax-get-property acadDisplayPeference 'GraphicsWinmodelBackgrndColor))
+(setq previousModelCrossHairColor (vlax-get-property acadDisplayPeference 'GraphicsWinmodelBackgrndColor))
+  
+;;; set background color to white			
+(vlax-put-property acadDisplayPeference 'GraphicsWinmodelBackgrndColor 16777215)
+;;; set modelcrosshair to black				
+(vlax-put-property acadDisplayPeference 'ModelCrosshairColor 0)
+
+;;; restore preferences, background and crosshair
+(vlax-put-property acadDisplayPeference 'GraphicsWinmodelBackgrndColor previousBackgroundColor)
+(vlax-put-property acadDisplayPeference 'ModelCrosshairColor previousModelCrossHairColor)
+(vlax-put-property acadPerferences previousAcadPreferences)
+  

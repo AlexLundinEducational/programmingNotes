@@ -1,0 +1,71 @@
+;;; save drawing information
+(setq drawingName(substr (getvar 'dwgname) 1 (- (strlen (getvar 'dwgname))4)))
+(setq imageExtension ".pdf")
+(setq pdfFileName (strcat "..\\Output-Files\\" drawingName imageExtension))
+;;; save options into variables
+;;; THESE OPTIONS have specific formatting that might be different than what
+;;; you are used to seeing inside full AutoCAD
+(setq detailedPlotConfiguration "Yes")
+(setq layoutName "Model")
+(setq pageSetupName "")
+(setq plotOutputDevice "DWG To PDF")
+(setq paperSize "ANSI A (8.50 x 11.00 Inches)")
+(setq paperUnits "Inches")
+(setq drawingOrientation "Portrait")
+(setq plotUpsideDown "No")
+(setq plotArea "Extents")
+(setq plottedScale "Fit")
+(setq plotOffset "center")
+(setq plotStlyes "No")
+(setq plotStyleTableName ".")
+(setq plotLineWeights "No")
+(setq plotShadeSetting "No")
+(setq savePageSetupChanges "No")
+(setq proceedWithPlot "Yes")
+(setq discardChanges "Yes")
+;;; zoom extents and export	
+ZOOM EXTENTS
+REGEN
+;;; enter plot command and use variables to set options
+(command
+"-PLOT"
+;;; Detailed plot configuration: Yes/No
+detailedPlotConfiguration
+;;;Enter layout Name?
+layoutName
+;;;Output device Name?
+plotOutputDevice
+;;;Enter paper size?
+paperSize
+;;;Enter paper units: Inches/Millimeters
+paperUnits
+;;;Enter drawing orientation: Portait/Landscape
+drawingOrientation
+;;;Plot upside down: Yes/No
+plotUpsideDown
+;;;Enter plot area: Display/Extents/Limits/View/Window
+plotArea
+;;;Enter plot scale: Plotted Inches = Drawing Unit or Fit
+plottedScale
+;;;Enter plot offset <x,y> or center: 
+plotOffset
+;;;Plot with plot styles? Yes/No
+plotStlyes
+;;;Enter plot style table name (enter . for none)
+plotStyleTableName
+;;;Plot with lineweights? Yes/No
+plotLineWeights
+;;;Enter shade plot setting:
+plotShadeSetting
+;;;Enter file name:
+pdfFileName
+;;; Save changes to page setup? Yes/No 
+savePageSetupChanges
+;;;Proceed with plot? Yes/No
+proceedWithPlot
+)
+;;;Exit drawing
+_QUIT
+;;;Discard changes? Yes/No
+!discardChanges
+

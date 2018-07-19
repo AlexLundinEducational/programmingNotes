@@ -1,0 +1,21 @@
+;;; save drawing information
+(setq drawingName(substr (getvar 'dwgname) 1 (- (strlen (getvar 'dwgname))4)))
+(setq imageExtension ".jpg")
+(setq imageName (strcat "..\\Output-Files\\" drawingName imageExtension))
+;;; AutoCAD command line inputs
+(setq objectsToPrintStringOption "ALL")
+;;; zoom extents and export	
+ZOOM EXTENTS
+REGEN
+;;; enter JPGOUT  command and use variables to set options
+JPGOUT
+;;; Enter file name:
+!imageName
+;;; Select objecst to print or <ALL\Extents\more options...>
+!objectsToPrintStringOption
+;;; there must be a blank line after sending a string into the object selection arguement
+
+;;; AutoCAD command line quit with discard changes
+;;; Must stay on same line to exit correctly, with this specific script, for some reason
+;;; There must be a space after YES
+_QUIT YES 
