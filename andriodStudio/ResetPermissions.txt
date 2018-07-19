@@ -1,0 +1,24 @@
+
+
+
+3 Answers. Android Studio does not contain ADB, you need Android SDK for it 
+(it is installed on first run of Android Studio 0.9.x and newer). 
+ADB is located in sdk\platform-tools . 
+It's possible to add to PATH in Windows and use Terminal 
+inside Android Studio only by command: adb shell and after use su get root shel
+
+Command to reset permissions from ADB
+https://stackoverflow.com/questions/34512880/how-to-debug-reset-android-6-0-permissions
+
+Install SKD tools for ADB access
+https://developer.android.com/studio/command-line/adb
+
+Run from command prompts
+https://www.youtube.com/watch?v=MVXX-YdhRU0
+
+cd C:\Users\Alex\AppData\Local\Android\Sdk\platform-tools
+adb
+adb shell pm reset-permissions
+
+Request permission from Andriod app during execution
+https://stackoverflow.com/questions/34512880/how-to-debug-reset-android-6-0-permissions/34512887

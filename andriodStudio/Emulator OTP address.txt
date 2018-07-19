@@ -1,0 +1,6 @@
+https://mobiforge.com/design-development/sms-messaging-android
+
+Andriod emulator IDs are stored in the image themselves on the computer
+
+
+https://stackoverflow.com/questions/7638252/android-testing-sms-from-emulator
