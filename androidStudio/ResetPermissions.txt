@@ -17,8 +17,8 @@ Run from command prompts
 https://www.youtube.com/watch?v=MVXX-YdhRU0
 
 cd C:\Users\Alex\AppData\Local\Android\Sdk\platform-tools
-adb
-adb shell pm reset-permissions
+.\adb.exe
+.\adb shell pm reset-permissions
 
 Request permission from Andriod app during execution
 https://stackoverflow.com/questions/34512880/how-to-debug-reset-android-6-0-permissions/34512887
